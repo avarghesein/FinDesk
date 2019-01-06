@@ -1,7 +1,5 @@
 # FinDesk
-A Demo application featuring AngularJS 1.x, BootStrap, WebAPI, MVC, WebAPI &amp; Entity Framework Code First Model On SQL Server Compact
-
-Images:
+# A Demo application featuring AngularJS 1.x, BootStrap, WebAPI, MVC, WebAPI &amp; Entity Framework Code First Model On SQL Server Compact
 
 Home Page:
 
