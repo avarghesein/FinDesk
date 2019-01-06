@@ -1,0 +1,11 @@
+﻿<div class="modal-header">
+    <h3 class="modal-title"><span data-ng-bind-html="title"></span></h3>
+    
+</div>
+<div class="modal-body">
+    <span data-ng-bind-html="message"></span>    
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-primary btn-warn" data-ng-click="ok(); $event.stopPropagation()">OK</button>
+    <button type="button" class="btn btn-default" data-ng-click="cancel(); $event.stopPropagation()">Cancel</button>    
+</div>

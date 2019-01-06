@@ -1,0 +1,84 @@
+﻿<div class="progress row" data-ng-show="isBusy">
+    <div class="col-md-12 progress-bar progress-bar-striped active" role="progressbar"
+         aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%">
+        Loading...
+    </div>
+</div>
+
+<div class="row" data-ng-show="showError">
+    <alert type="danger" close="closeError()">{{errorString}}</alert>
+</div>
+
+<div class="row">
+    <div class="col-md-2 text-left">
+        <span class="h1">Policies</span>
+    </div>
+    <div class="col-md-8" style="padding:0;margin:0">
+        <div class="col-md-4">
+            <input type="text" class="form-control form-control-search" datepicker-popup="dd/MM/yyyy"
+                   ng-model="doeFilter" is-open="isCalendarOpened" placeholder="By policy expiry" ng-click="calendarPopupOpen($event)" />
+        </div>
+
+        <div class="col-md-4">
+            <input type="text" class="form-control form-control-search" placeholder="By user name" data-ng-model="usrNmeFilter">
+        </div>
+        <div class="col-md-4">
+            <input type="text" class="form-control form-control-search" placeholder="By policy name" data-ng-model="plcyNmeFilter">
+        </div>
+    </div>
+    <div class="col-md-2 text-right">
+        <span class="h4">
+            <a data-ng-href="#/Create">Add Policy</a>
+            &nbsp;&nbsp;
+        </span>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12 text-center"
+         ng-show="!(data.policies | filter: customPolicyFilter).length">
+        <div>&nbsp;</div>
+        <div>&nbsp;</div>
+        <div>&nbsp;</div>
+        <h2>No result to display here...</h2>
+        <div>&nbsp;</div>
+        <div>&nbsp;</div>
+        <div>&nbsp;</div>
+        <div>&nbsp;</div>
+    </div>
+    <div class="col-md-4 col-sm-6 col-xs-12" data-ng-repeat="policy in data.policies  | filter: customPolicyFilter">
+        <div class="user clearfix">
+            <div class="title col-md-8">
+                <a data-ng-href="#/Edit/{{ policy.id }}">{{ policy.nme + ' ' + policy.num }}</a>
+                <div class="childTitle">
+                    <span class="glyphicon glyphicon-user" />&nbsp;<span>{{ policy.usr.fnm + ' ' + policy.usr.lnm }}</span>
+                </div>
+                <div class="childTitle">
+                    <span class="glyphicon glyphicon-shopping-cart" />&nbsp;<span>{{ policy.dop | date:'dd-MMM-yyyy' }}</span>
+                </div>
+                <div class="childTitle">
+                    <span class="glyphicon glyphicon-calendar" />&nbsp;<span>{{ policy.doe | date:'dd-MMM-yyyy' }}</span>
+                </div>
+            </div>
+            
+
+            <div class="col-md-4 clearfix" style="padding:0">
+                <div class="photo col-md-4 pull-right clearfix" style="background-size: 100%;background-image:url({{policy.usr.getThumbnailUrl()}})">
+            </div>
+                <div>
+                    &nbsp;
+                </div>
+                <div>
+                    &nbsp;
+                </div>
+                <div>
+                    &nbsp;
+                </div>
+                <div>
+                    <a data-ng-click="deletePolicyByIndex($index)" class="glyphicon glyphicon-trash pull-right"></a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

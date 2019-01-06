@@ -1,0 +1,67 @@
+﻿<div class="main">
+
+    <div class="row" style="margin:0">
+        &nbsp;
+    </div>
+
+    <div class="progress row" data-ng-show="isBusy" style="margin:0">
+        <div class="col-md-12 progress-bar progress-bar-striped active" role="progressbar"
+             aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%">
+            Loading...
+        </div>
+    </div>
+
+    <div class="row" data-ng-show="showError">
+        <alert type="danger" close="closeError()">{{errorString}}</alert>
+    </div>
+
+    <div class="row clearfix" style="padding: 5px 5px 5px 5px;margin:0">
+        <div class="col-md-3 pull-left">
+            <input type="text" class="form-control form-control-search text-left" placeholder="Search users by name..." data-ng-model="nmeFilter">
+        </div>
+        <div class="col-md-9 text-right">
+            <span class="h4">
+                <a data-ng-click="ok()">OK</a>
+                &nbsp;&nbsp;
+            </span>
+            <span class="h4">
+                <a data-ng-click="cancel()">Cancel</a>
+                &nbsp;&nbsp;
+            </span>
+        </div>
+    </div>
+
+    <div class="row" style="margin:0">
+        <div class="col-md-12 text-center"
+             ng-show="!(data.users | filter: customUserFilter).length">
+            <div>&nbsp;</div>
+            <div>&nbsp;</div>
+            <div>&nbsp;</div>
+            <h2>No result to display here...</h2>
+            <div>&nbsp;</div>
+            <div>&nbsp;</div>
+            <div>&nbsp;</div>
+            <div>&nbsp;</div>
+        </div>
+
+        <div class="col-md-4 col-sm-6 col-xs-12"
+             data-ng-repeat="user in data.users | filter: customUserFilter">
+            <div class="userPopup clearfix">
+                <div class="title col-md-8">
+                    <input type="checkbox" ng-model="user.sel" />
+                    <a data-ng-href="">{{ user.fnm + ' ' + user.lnm }}</a>
+                    <div class="childTitle">
+                        <span class="glyphicon glyphicon-calendar" />&nbsp;<span>{{ user.dob | date:'dd-MMM-yyyy' }}</span>
+                    </div>
+                </div>
+
+                <div class="photoSmall pull-right clearfix col-md-4" style="background-size: 100%;background-image:url({{ user.getThumbnailUrl() }})">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row" style="margin:0">
+        &nbsp;
+    </div>
+</div>

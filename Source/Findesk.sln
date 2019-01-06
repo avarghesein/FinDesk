@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FindeskVM", "FinDeskViewModel\FindeskVM.csproj", "{D3A36546-9314-40B0-9458-D104F623F1F9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FindeskContract", "FindeskContract\FindeskContract.csproj", "{B65C555C-9C9E-4EB8-8E28-FCCFA3B1EFED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FindeskData", "FindeskData\FindeskData.csproj", "{ED95B395-E72B-458F-80EE-E30C3F80671A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FindeskVMMapper", "FindeskVMMapper\FindeskVMMapper.csproj", "{F756E7C8-8D4A-4A49-8987-2681282A785D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FindeskWeb", "FindeskWeb\FindeskWeb.csproj", "{DFB32C88-E31E-45E9-AC65-C74919223F94}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D3A36546-9314-40B0-9458-D104F623F1F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3A36546-9314-40B0-9458-D104F623F1F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3A36546-9314-40B0-9458-D104F623F1F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3A36546-9314-40B0-9458-D104F623F1F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B65C555C-9C9E-4EB8-8E28-FCCFA3B1EFED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B65C555C-9C9E-4EB8-8E28-FCCFA3B1EFED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B65C555C-9C9E-4EB8-8E28-FCCFA3B1EFED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B65C555C-9C9E-4EB8-8E28-FCCFA3B1EFED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED95B395-E72B-458F-80EE-E30C3F80671A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED95B395-E72B-458F-80EE-E30C3F80671A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED95B395-E72B-458F-80EE-E30C3F80671A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED95B395-E72B-458F-80EE-E30C3F80671A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F756E7C8-8D4A-4A49-8987-2681282A785D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F756E7C8-8D4A-4A49-8987-2681282A785D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F756E7C8-8D4A-4A49-8987-2681282A785D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F756E7C8-8D4A-4A49-8987-2681282A785D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DFB32C88-E31E-45E9-AC65-C74919223F94}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DFB32C88-E31E-45E9-AC65-C74919223F94}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DFB32C88-E31E-45E9-AC65-C74919223F94}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DFB32C88-E31E-45E9-AC65-C74919223F94}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

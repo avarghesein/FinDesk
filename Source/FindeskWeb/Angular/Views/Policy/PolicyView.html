@@ -1,0 +1,208 @@
+﻿
+<div class="row" data-ng-show="showMessage">
+    <alert type="success" close="closeMessage()">Details of {{ policy.nme + ' ' + policy.num }} has been successfully saved</alert>
+</div>
+
+<div class="row" data-ng-show="showError">
+    <alert type="danger" close="closeError()">{{errorString}}</alert>
+</div>
+
+<div class="row" data-ng-show="policyForm.num.$error.maxlength">
+    <alert type="danger">Maximum 50 Characters, allowed for Policy Number</alert>
+</div>
+
+<div class="row" data-ng-show="policyForm.nme.$error.maxlength">
+    <alert type="danger">Maximum 50 Characters, allowed for Policy Name</alert>
+</div>
+
+<div class="row" data-ng-show="policyForm.dop.$error.date">
+    <alert type="danger">Enter a valid date for Date of Purchase</alert>
+</div>
+
+<div class="row" data-ng-show="policyForm.doe.$error.date">
+    <alert type="danger">Enter a valid date for Date of Expiary</alert>
+</div>
+
+<div class="row" data-ng-show="policyForm.sum.$error.number">
+    <alert type="danger">Enter a valid amount for Sum Assured</alert>
+</div>
+
+<div class="row" data-ng-show="policyForm.chsNum.$error.maxlength">
+    <alert type="danger">Maximum 100 Characters, allowed for Chassis No</alert>
+</div>
+
+<div class="row" data-ng-show="policyForm.vehNum.$error.maxlength">
+    <alert type="danger">Maximum 100 Characters, allowed for Vehicle No</alert>
+</div>
+
+<div class="row" data-ng-show="policyForm.prm.$error.number">
+    <alert type="danger">Enter a valid amount for Premium</alert>
+</div>
+
+<div class="row" data-ng-show="policyForm.dise.$error.maxlength">
+    <alert type="danger">Maximum 500 Characters, allowed for Disease</alert>
+</div>
+
+
+<div class="row">
+
+    <span class="text-left h1">Create new policy</span>
+    <span class="h4 pull-right">
+        <a data-ng-click="back()">Back</a>&nbsp;
+    </span>
+
+</div>
+
+<form name="policyForm" novalidate data-ng-submit="savePolicy()">
+
+    <div class="row">
+        <div class="col-sm-12 col-md-12 user clearfix innerInputPadding">
+            <div class="col-sm-12 col-md-2 title">Policy Number:</div>
+            <div class="col-sm-12 col-md-3">
+                <input type="text" class="fullWidth" name="num" data-ng-model="policy.num"
+                       required data-ng-maxlength="50" />
+            </div>
+
+            <div class="col-sm-12 col-md-1 title"><span class="error" data-ng-show="policyForm.num.$error.required">*</span></div>
+
+            <div class="col-sm-12 col-md-2 title">Policy Name:</div>
+            <div class="col-sm-12 col-md-3">
+                <input type="text" class="fullWidth" name="nme" data-ng-model="policy.nme"
+                       required data-ng-maxlength="50" />
+            </div>
+
+            <div class="col-sm-12 col-md-1 title"><span class="error" data-ng-show="policyForm.nme.$error.required">*</span></div>
+
+            <div class="col-sm-12 col-md-2 title">DOP:</div>
+            <div class="col-sm-12 col-md-3">
+                <input type="text" name="dop" data-ng-model="policy.dop" data-ui-date="" data-ui-date-format=""
+                       required
+                       class="form-control form-control-input fullWidth"
+                       datepicker-popup="dd/MM/yyyy"
+                       is-open="isDopCalendarOpened" placeholder="Date of Purchase in dd/MM/yyyy" ng-click="calendarPopupOpen($event,'isDopCalendarOpened')" />
+            </div>
+
+            <div class="col-sm-12 col-md-1 title"><span class="error" data-ng-show="policyForm.dop.$error.required">*</span></div>
+
+            <div class="col-sm-12 col-md-2 title">DOE:</div>
+            <div class="col-sm-12 col-md-3">
+                <input type="text" name="doe" data-ng-model="policy.doe" data-ui-date="" data-ui-date-format=""
+                       required
+                       class="form-control form-control-input fullWidth"
+                       datepicker-popup="dd/MM/yyyy"
+                       is-open="isDoeCalendarOpened" placeholder="Date of Expiary in dd/MM/yyyy" ng-click="calendarPopupOpen($event,'isDoeCalendarOpened')" />
+            </div>
+
+            <div class="col-sm-12 col-md-1 title"><span class="error" data-ng-show="policyForm.doe.$error.required">*</span></div>
+
+            <div class="col-sm-12 col-md-2 title">Sum Assured:</div>
+            <div class="col-sm-12 col-md-3">
+                <input type="number" class="fullWidth" name="sum" data-ng-model="policy.sum"
+                       required />
+            </div>
+
+            <div class="col-sm-12 col-md-1 title"><span class="error" data-ng-show="policyForm.sum.$error.required">*</span></div>
+
+
+            <div class="col-sm-12 col-md-2 title">Chassis No:</div>
+            <div class="col-sm-12 col-md-3">
+                <input type="tel" class="fullWidth" name="chsNum" data-ng-model="policy.chsNum"
+                       data-ng-maxlength="100" />
+            </div>
+            <div class="col-sm-12 col-md-2 title">Vehicle No:</div>
+            <div class="col-sm-number col-md-3">
+                <input type="tel" class="fullWidth" name="vehNum" data-ng-model="policy.vehNum"
+                       data-ng-maxlength="100" />
+            </div>
+
+            <div class="col-sm-12 col-md-offset-1 col-md-2 title">Premium:</div>
+            <div class="col-sm-12 col-md-3">
+                <input type="number" class="fullWidth" name="prm" data-ng-model="policy.prm"
+                       required />
+            </div>
+
+            <div class="col-sm-12 col-md-1 title"><span class="error" data-ng-show="policyForm.prm.$error.required">*</span></div>
+
+
+
+
+
+            <div class="col-sm-12 col-md-2 title">Disease:</div>
+            <div class="col-sm-12 col-md-3 title">
+                <textarea class="fullWidth" data-ng-model="policy.dise" name="dise" data-ng-maxlength="500"></textarea>
+            </div>
+
+            <div class="col-md-12">&nbsp;</div>
+
+            <div class="col-sm-12  col-md-2 title">
+                <a data-ng-click="selectUsers()">
+                    Add Insurees
+                </a>
+                <span data-ng-show="!(policy.deps.length)">&nbsp;*</span>
+            </div>
+
+            <div class="col-sm-12  col-md-9" style="min-height: 30px;padding:0;">
+                <div class="col-sm-12  col-md-4" data-ng-repeat="dep in policy.deps track by $index">
+                    <div class="col-sm-12  userPopup clearfix">
+                        <a data-ng-click="removeDependentByIndex($index)" class="glyphicon glyphicon-trash pull-left"></a>
+                        <div class="row-fluid childTitle">
+                            <div class="title col-md-8">
+                                <div class="">
+                                    <span>{{ dep.usr.fnm }}</span>
+                                </div>
+
+                                <div class="childTitle">
+                                    <span>
+                                        <select name="depRln{{ $index }}"
+                                                ng-model="dep.rln" ng-options="reln.cde as reln.nme for reln in dep.getRelations()" required=""></select>
+                                    </span>
+                                    <span class="error" data-ng-show="policyForm.depRln{{ $index }}.$error.required">*</span>
+                                </div>
+                            </div>
+                            <div class="photoMedium col-md-4 pull-right" style="background-size: 100%; background-image: url({{dep.usr.getThumbnailUrl()}})">
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-12 col-md-12">&nbsp;</div>
+
+            <div class=" col-sm-12 col-md-2 title">
+                <div data-upload-document="" data-title="Upload Document" data-name="document" />
+            </div>
+
+            <div class="col-sm-12  col-md-9" style="min-height: 30px;padding:0;">
+                <div class="col-sm-12  userPopup clearfix col-md-4" data-ng-repeat="doc in policy.docs track by $index">
+                    <a data-ng-click="removeDocumentByIndex($index)" class="glyphicon glyphicon-trash "></a>
+                    <span class="title text-center" style="-ms-word-wrap: break-word; word-wrap: break-word;">
+                        <a href="/Home/DownloadDocument/{{doc.id}}">
+                            &nbsp;
+                            {{ doc.nme }}
+                            &nbsp;
+                            {{ doc.getSize() }}
+                        </a>
+                    </span>
+                </div>
+            </div>
+
+            <div class="col-sm-12 col-md-12">&nbsp;</div>
+
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="pull-left">
+            <span class="">
+                <input type="submit" value="{{ isEdit | iif : 'Save' : 'Create' }}" class="btn-primary"
+                       data-ng-disabled="policyForm.$invalid" />
+            </span>
+            <span>
+                <input type="button" data-ng-click="back()" value="Cancel" />
+            </span>
+        </div>
+    </div>
+
+</form>

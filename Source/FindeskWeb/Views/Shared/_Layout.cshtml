@@ -1,0 +1,130 @@
+﻿<!DOCTYPE html>
+<html lang="en" data-ng-app="@ViewBag.AngularModule">
+<head>
+    <link id="rootUrl" href='@Url.Content("~")' rel="tag"/>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <!-- Change title, description and keywords -->
+    <title>@ViewBag.Title - Fin@Desk</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+
+    <!-- HTML5 Support for IE -->
+    <!--[if lt IE 9]>
+    <script src="~/scripts/html5shim.js"></script>
+    <![endif]-->
+    <!-- Google Web Font -->
+    <link href='http://fonts.googleapis.com/css?family=Dosis:200,400,600' rel='stylesheet' type='text/css'>
+    <!-- Stylesheets -->
+    <link href="~/CSS/Style/bootstrap.css" rel="stylesheet">
+    <link href="~/CSS/Style/bootstrap-theme.css" rel="stylesheet" />
+    <link href="~/CSS/Style/bootstrap.icon-large.min.css" rel="stylesheet" />    
+     <link href="~/CSS/Style/valevelsmenu-base.css" rel="stylesheet">
+    <link href="~/CSS/Style/valevelsmenu-topbar.css" rel="stylesheet">
+    <link href="~/CSS/Style/style.css" rel="stylesheet">
+    <link href="~/CSS/Style/colorscheme.css" rel="stylesheet">
+    <link href="~/CSS/Style/flexslider.css" rel="stylesheet">
+    <!-- Our Custom Styles -->
+    <link href="~/CSS/Style/Site.css" rel="stylesheet" />
+</head>
+
+<body>
+
+    <!-- Sliding share panel. Click "Share it" to see. -->
+
+    <div class="sharepanel">
+        <div class="container">
+            <div class="row">
+                <div class="span8">
+                    <div class="padd spara">
+                        <!-- Small para -->
+                        <p></p>
+                    </div>
+                </div>
+                <div class="span4">
+                    <div class="padd">                      
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+
+    <!-- Header -->
+
+    <div class="fixedbar">
+        <div class="container">
+            <div class="row">
+                <div class="span12">
+                    <div class="logo">
+                        <div class="pull-left">
+                            <h1><a href="/">FinDesk</a></h1>
+                        </div>
+                        <div class="navi">
+                            <!-- Navigation Starts Here -->
+                            <div class="pull-left">
+                                <div id="avtopmenubar" class="mattblackmenu">
+                                    <!-- Main navigation -->
+                                    <ul>
+                                        <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, null)</li>
+                                        <li>@Html.ActionLink("Contact", "Index", "Home", new { area = "" }, null)</li>
+                                        @*<li>@Html.ActionLink("About", "Index", "Home", new { area = "" }, null)</li>*@
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- Navigation Ends Here -->
+                        </div>
+                    </div>
+                    <div class="share">
+                        <div class="pull-right">
+                            Welcome Administrator
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main content -->
+
+    <div class="main">
+
+        <div class="container">
+            <div class="row">
+                <div class="span12 hidden-desktop">
+                    <div class="padd">
+                        <div class="navis"></div>
+                    </div>
+                </div>
+
+            </div>
+            @RenderBody()
+        </div>
+
+    </div>
+
+    <!-- JS -->
+
+    <script src="~/Scripts/jquery-2.1.4.min.js"></script>
+    <script src="~/scripts/bootstrap.js"></script>
+    <script src="~/Scripts/angular.js"></script>
+    <script src="~/Scripts/angular-route.js"></script>
+    <script src="~/Scripts/angular-sanitize.js"></script>
+
+    <script src="~/Scripts/angular-ui/ui-bootstrap.js"></script>
+    <script src="~/Scripts/angular-ui/ui-bootstrap-tpls.js"></script>
+
+    <script src="~/Angular/Modules/SharedModule.js"></script>
+
+    <script src="~/scripts/easing.js"></script>
+
+    <script type="text/javascript" src="~/scripts/flexslider.js"></script>
+    <script type="text/javascript" src="~/scripts/jquery.prettyPhoto.js"></script>
+    <script type="text/javascript" src="~/scripts/custom.js"></script>
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,30 @@
+﻿<style>
+    .trasparentInputFile {
+        opacity: 0;
+        filter: alpha(opacity=0);
+        -moz-opacity: 0;
+        -khtml-opacity: 0;
+        position:absolute;
+        z-index: 50;
+        cursor:pointer;
+        left:0;
+        width:100% !important;
+    }
+
+    .anchorInputFile {
+
+        position:absolute;
+        z-index: 5;
+        color:blue;
+        cursor:pointer;
+    }
+</style>
+
+<input accept=".jpg,.png,.bmp,.gif"
+       class="trasparentInputFile"
+       type="file" name="{{name}}"
+       onchange="angular.element(this).scope().uploadFile(this.files)" />
+<a 
+    class="anchorInputFile"
+    href="">{{title}}</a>
+

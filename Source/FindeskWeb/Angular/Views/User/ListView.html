@@ -1,0 +1,75 @@
+﻿<div class="progress row" data-ng-show="isBusy">
+    <div class="col-md-12 progress-bar progress-bar-striped active" role="progressbar"
+        aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+        Loading...
+    </div>
+</div>
+
+<div class="row" data-ng-show="showError">
+    <alert type="danger" close="closeError()">{{errorString}}</alert>
+</div>
+
+<div class="row">
+    <div class="col-md-1 text-left">
+        <span class="h1">Users</span>
+    </div>
+    <div class="col-md-3 pull-left">
+        <input type="text" class="form-control form-control-search text-left" placeholder="Search users by name..." data-ng-model="nmeFilter">
+    </div>
+    <div class="col-md-8 text-right">
+        <span class="h4">
+            <a data-ng-href="#/Create">Add User</a>
+            &nbsp;&nbsp;
+        </span>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12 text-center"
+        ng-show="!(data.users | filter: customUserFilter).length">
+        <div>&nbsp;</div>
+        <div>&nbsp;</div>
+        <div>&nbsp;</div>
+        <h2>No result to display here...</h2>
+        <div>&nbsp;</div>
+        <div>&nbsp;</div>
+        <div>&nbsp;</div>
+        <div>&nbsp;</div>
+    </div>
+
+    <div class="col-md-4 col-sm-6 col-xs-12" data-ng-repeat="user in data.users  | filter: customUserFilter">
+        <div class="user clearfix">
+            <div class="title col-md-8">
+                <a data-ng-href="#/Edit/{{ user.id }}">{{ user.fnm + ' ' + user.lnm }}</a>
+                <div class="childTitle">
+                    <span class="glyphicon glyphicon-earphone" />&nbsp;<span>{{ user.mob }}</span>
+                </div>
+                <div class="childTitle">
+                    <span class="glyphicon glyphicon-envelope" />&nbsp;
+                    <a href="mailto:{{ user.eml }}">{{ user.eml }}</a>
+                </div>
+                <div class="childTitle">
+                    <span class="glyphicon glyphicon-phone-alt" />&nbsp;<span>{{ user.lnd }}</span>
+                </div>
+            </div>
+
+            <div class="col-md-4 clearfix" style="padding:0">
+                <div class="photo pull-right" style="background-size: 100%; background-image: url({{ user.getThumbnailUrl() }})">
+                </div>
+                <div>
+                    &nbsp;
+                </div>
+                <div>
+                    &nbsp;
+                </div>
+                <div>
+                    &nbsp;
+                </div>
+                <div>
+                    <a data-ng-click="deleteUserByIndex($index)" class="glyphicon glyphicon-trash pull-right"></a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

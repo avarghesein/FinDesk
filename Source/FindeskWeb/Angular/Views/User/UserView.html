@@ -1,0 +1,171 @@
+﻿<div class="row" data-ng-show="showMessage">
+    <alert type="success" close="closeMessage()">Details of {{ user.fnm + ' ' + user.lnm }} has been successfully saved</alert>
+</div>
+
+<div class="row" data-ng-show="showError">
+    <alert type="danger" close="closeError()">Unable to save the details for {{ user.fnm + ' ' + user.lnm }}. Please try again!</alert>
+</div>
+
+<div class="row" data-ng-show="userForm.fnm.$error.maxlength">
+    <alert type="danger">Maximum 50 Characters, allowed for first name</alert>
+</div>
+
+<div class="row" data-ng-show="userForm.lnm.$error.maxlength">
+    <alert type="danger">Maximum 50 Characters, allowed for last name</alert>
+</div>
+
+<div class="row" data-ng-show="userForm.mnm.$error.maxlength">
+    <alert type="danger">Maximum 50 Characters, allowed for middle name</alert>
+</div>
+
+<div class="row" data-ng-show="policyForm.dob.$error.date">
+    <alert type="danger">Enter a valid date for Date of Birth</alert>
+</div>
+
+<div class="row" data-ng-show="userForm.adr.$error.maxlength">
+    <alert type="danger">Maximum 300 Characters, allowed for address</alert>
+</div>
+
+<div class="row" data-ng-show="userForm.mob.$error.maxlength">
+    <alert type="danger">Maximum 20 Characters, allowed for mobile</alert>
+</div>
+
+<div class="row" data-ng-show="userForm.mob.$error.pattern">
+    <alert type="danger">Mobile number given is invalid</alert>
+</div>
+
+<div class="row" data-ng-show="userForm.lnd.$error.maxlength">
+    <alert type="danger">Maximum 20 Characters, allowed for Land line</alert>
+</div>
+
+<div class="row" data-ng-show="userForm.lnd.$error.pattern">
+    <alert type="danger">Land line number given is invalid</alert>
+</div>
+
+<div class="row" data-ng-show="userForm.eml.$error.maxlength">
+    <alert type="danger">Maximum 100 Characters, allowed for email</alert>
+</div>
+
+<div class="row" data-ng-show="userForm.eml.$error.email">
+    <alert type="danger">Invalid email address</alert>
+</div>
+
+<div class="row">
+
+    <span class="text-left h1">Create new user</span>
+    <span class="h4 pull-right">
+        <a data-ng-click="back()">Back</a>&nbsp;
+    </span>
+
+</div>
+
+<form name="userForm" novalidate data-ng-submit="saveUser()">
+
+    <div class="row">
+        <div class="col-sm-12 col-md-12 user clearfix innerInputPadding">
+            <div class="col-sm-12 col-md-2 title">First Name:</div>
+            <div class="col-sm-12 col-md-3">
+                <input type="text" class="fullWidth" name="fnm" data-ng-model="user.fnm"
+                    required data-ng-maxlength="50" />
+            </div>
+
+            <div class="col-sm-12 col-md-1 title"><span class="error" data-ng-show="userForm.fnm.$error.required">*</span></div>
+
+            <div class="col-sm-12 col-md-2 title">Last Name:</div>
+            <div class="col-sm-12 col-md-3">
+                <input type="text" class="fullWidth" name="lnm" data-ng-model="user.lnm"
+                    required data-ng-maxlength="50" />
+            </div>
+
+            <div class="col-sm-12 col-md-1 title"><span class="error" data-ng-show="userForm.lnm.$error.required">*</span></div>
+
+            <div class="col-sm-12 col-md-2 title">Middle Name:</div>
+            <div class="col-sm-12 col-md-3">
+                <input type="text" class="fullWidth" name="mnm" data-ng-model="user.mnm"
+                    data-ng-maxlength="50" />
+            </div>
+
+            <div class="col-sm-12 col-md-offset-1 col-md-2 title">DOB:</div>
+            <div class="col-sm-12 col-md-3">
+                <input type="text" name="dob" data-ng-model="user.dob" data-ui-date="" data-ui-date-format=""
+                       required
+                       class="form-control form-control-input"
+                       datepicker-popup="dd/MM/yyyy"
+                       is-open="isCalendarOpened" placeholder="Date of Birth in dd/MM/yyyy" ng-click="calendarPopupOpen($event)" />
+            </div>
+
+            <div class="col-sm-12 col-md-1 title"><span class="error" data-ng-show="userForm.dob.$error.required">*</span></div>
+
+            <div class="col-sm-12 col-md-2 title">Address:</div>
+            <div class="col-sm-12 col-md-3">
+                <textarea class="fullWidth" name="adr" data-ng-model="user.adr"
+                    required data-ng-maxlength="300" rows="3"></textarea>
+            </div>
+
+            <div class="col-sm-12 col-md-1 title"><span class="error" data-ng-show="userForm.adr.$error.required">*</span></div>
+
+            <div class="col-sm-12 col-md-2 title">Mobile:</div>
+            <div class="col-sm-12 col-md-3">
+                <input type="tel" class="fullWidth" name="mob" data-ng-model="user.mob"
+                    data-ng-maxlength="20" data-ng-pattern="phoneNumberRegx"/>
+            </div>
+            <div class="col-sm-12 col-md-offset-1  col-md-2 title">Land Line:</div>
+            <div class="col-sm-number col-md-3">
+                <input type="tel" class="fullWidth" name="lnd" data-ng-model="user.lnd"
+                    data-ng-maxlength="20" data-ng-pattern="phoneNumberRegx"/>
+            </div>
+
+            <div class="col-sm-12 col-md-offset-1 col-md-2 title">Email:</div>
+            <div class="col-sm-12 col-md-3">
+                <input type="email" class="fullWidth" name="eml" data-ng-model="user.eml"
+                    data-ng-maxlength="100" />
+            </div>
+
+            <div class="col-sm-12 col-md-2 title">Gender:</div>
+            <div class="col-sm-12 col-md-3 title">
+                <input type="radio" name="GEN" value="1" data-ng-model="user.gen" data-ng-required="!user.gen" />&nbsp;Male&nbsp;
+            <input type="radio" name="GEN" value="0" data-ng-model="user.gen" data-ng-required="!user.gen" />&nbsp;Female&nbsp;
+            </div>
+
+            <div class="col-sm-12 col-md-1 title"><span class="error" data-ng-show="userForm.GEN.$error.required">*</span></div>
+
+            <div class="col-sm-12 col-md-2 title ">Blood Group:</div>
+            <div class="col-sm-12 col-md-3 title">
+                <input type="radio" name="BGP" value="" data-ng-model="user.bgp"/>&nbsp;N/A&nbsp;
+                <input type="radio" name="BGP" value=0 data-ng-model="user.bgp" />&nbsp;A&nbsp;
+             <input type="radio" name="BGP" value=1 data-ng-model="user.bgp" />&nbsp;B&nbsp;
+             <input type="radio" name="BGP" value=2 data-ng-model="user.bgp" />&nbsp;AB&nbsp;
+             <input type="radio" name="BGP" value=3 data-ng-model="user.bgp" />&nbsp;O&nbsp;
+            </div>
+
+            <div class="col-sm-12 col-md-offset-6 col-md-2 title">RH:</div>
+            <div class="col-sm-12 col-md-3 title">
+                <input type="radio" name="RH" ng-value="true" data-ng-model="user.rhf" />&nbsp;+&nbsp;
+                <input type="radio" name="RH" ng-value="false" data-ng-model="user.rhf" />&nbsp;-&nbsp;
+            </div>            
+
+            <div class="col-sm-12 col-md-2 clearfix title pull-left text-left">
+                <div data-generate-thumbnail="" data-title="Upload Photo" data-name="image"
+                    data-width="413" data-height="531"/>
+            </div>
+
+            <div class="col-sm-12 col-md-4 clearfix title photo pull-left text-left" style="background-size: 100%; background-image: url({{ user.getThumbnailUrl() }})">
+            </div>
+
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="pull-left">
+            <span class="">
+                <input type="submit" value="{{ isEdit | iif : 'Save' : 'Create' }}" class="btn-primary" 
+                    data-ng-disabled="userForm.$invalid" /></span>
+            <span>
+                <input type="button" data-ng-click="back()" value="Cancel" />
+            </span>
+        </div>
+    </div>   
+
+</form>
+
+
